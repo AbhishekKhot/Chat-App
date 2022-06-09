@@ -21,7 +21,7 @@
             android:paddingVertical="7dp"
             android:paddingStart="7dp"
             android:paddingEnd="40dp"
-            android:text="Sender Message Display Here "
+            android:text="@string/sender_message"
             android:textColor="@color/black"
             android:textSize="@dimen/h3"
             android:textStyle="bold" />
@@ -35,7 +35,7 @@
             android:layout_toEndOf="@id/TextViewMessageReciever"
             android:fontFamily="@font/raleway"
             android:padding="7dp"
-            android:text="20:09"
+            android:text="@string/_20_09"
             android:textColor="@color/black"
             android:textSize="@dimen/h4"
             android:textStyle="bold"

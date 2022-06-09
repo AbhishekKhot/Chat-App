@@ -1,9 +1,11 @@
-package com.example.chatapp
+package com.example.chatapp.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chatapp.R
+import com.example.chatapp.model.Message
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.receiver_item.view.*
 import kotlinx.android.synthetic.main.sender_item.view.*
@@ -27,7 +29,7 @@ class MessageAdapter(val messageList:MutableList<Message>):RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if(holder.javaClass==SenderViewHolder::class.java){
+        if(holder.javaClass== SenderViewHolder::class.java){
             val sender_holder = holder as SenderViewHolder
             sender_holder.itemView.TextViewMessageSender.text=messageList[position].message
             sender_holder.itemView.TextViewMessageTimeSender.text=messageList[position].currentTime

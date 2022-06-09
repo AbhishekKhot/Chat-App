@@ -1,4 +1,4 @@
-package com.example.chatapp
+package com.example.chatapp.ui
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.chatapp.R
+import com.example.chatapp.model.User
+import com.example.chatapp.ui.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,7 +34,7 @@ class ProfileSetupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_setup)
-
+        supportActionBar!!.hide()
         TextViewSetProfile.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(intent, REQUEST_CODE)

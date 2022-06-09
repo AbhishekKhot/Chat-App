@@ -1,4 +1,4 @@
-package com.example.chatapp
+package com.example.chatapp.model
 
 data class User(
     val name:String?=null,

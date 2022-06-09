@@ -1,4 +1,4 @@
-package com.example.chatapp
+package com.example.chatapp.ui
 
 import android.content.Intent
 import android.graphics.Color
@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.chatapp.R
+import com.example.chatapp.model.UserDetails
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        supportActionBar!!.hide()
         val auth = FirebaseAuth.getInstance()
         val fireStore = FirebaseFirestore.getInstance()
 
@@ -60,6 +62,13 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this@MainActivity, ChatActivity::class.java)
                     intent.putExtra("name", userDetail.name)
                     intent.putExtra("receiverUid", userDetail.uid)
+                    startActivity(intent)
+                }
+
+                holder.itemView.CircleImageViewChat.setOnClickListener {
+                    val intent = Intent(this@MainActivity, UserImageActivity::class.java)
+                    intent.putExtra("userimage",userDetail.image)
+                    intent.putExtra("username",userDetail.name)
                     startActivity(intent)
                 }
             }

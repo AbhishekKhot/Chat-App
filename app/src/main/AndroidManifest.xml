@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatApp">
         <activity
-            android:name=".SplashActivity"
-            android:exported="true" >
+            android:name=".ui.UserImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,20 +22,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ChatActivity"
+            android:name=".ui.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileSetupActivity"
+            android:name=".ui.ProfileSetupActivity"
             android:exported="false" />
         <activity
-            android:name=".VerificationActivity"
+            android:name=".ui.VerificationActivity"
             android:exported="false" />
         <activity
-            android:name=".MobileNumberActivity"
+            android:name=".ui.MobileNumberActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true"/>
+            android:name=".ui.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

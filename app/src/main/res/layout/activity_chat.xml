@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/chat_background"
-    tools:context=".ChatActivity">
+    tools:context=".ui.ChatActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/ToolBarPersonChat"
@@ -45,7 +45,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/CircleImageViewPersonChat"
                 android:fontFamily="@font/raleway"
-                android:text="Name of User"
+                android:text="@string/user_name"
                 android:textColor="@color/white"
                 android:textSize="@dimen/h2"
                 android:textStyle="bold" />
@@ -71,7 +71,7 @@
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/message_background"
-        android:hint="Message"
+        android:hint="@string/message"
         android:inputType="text"
         android:paddingHorizontal="20dp"
         android:textAlignment="textStart"

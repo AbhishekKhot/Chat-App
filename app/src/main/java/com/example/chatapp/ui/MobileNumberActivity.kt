@@ -1,10 +1,11 @@
-package com.example.chatapp
+package com.example.chatapp.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.chatapp.R
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
@@ -23,7 +24,7 @@ class MobileNumberActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mobile_number)
-
+        supportActionBar!!.hide()
         countryCode = CountryCodePicker.selectedCountryCodeWithPlus
 
         CountryCodePicker.setOnCountryChangeListener {

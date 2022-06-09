@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Chat App</string>
+    <string name="user_name">User name</string>
+    <string name="message">Message</string>
+    <string name="for_creating_account_you_need_to_provide_mobile_number_for_verification">For creating account you need to provide mobile number for verification.</string>
+    <string name="enter_your_mobile_number">enter your mobile number</string>
+    <string name="verify_number">VERIFY NUMBER</string>
+    <string name="choose_profile_photo">Choose profile photo</string>
+    <string name="enter_your_name_here">enter your name here</string>
+    <string name="save">SAVE</string>
+    <string name="didn_t_received_change_your_number">Didn\'t Received ? Change Your Number</string>
+    <string name="verify">VERIFY</string>
+    <string name="user_status">User status</string>
+    <string name="sender_message">Sender message</string>
+    <string name="_20_09">20:09</string>
 </resources>

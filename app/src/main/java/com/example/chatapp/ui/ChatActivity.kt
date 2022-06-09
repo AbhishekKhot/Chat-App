@@ -1,10 +1,14 @@
-package com.example.chatapp
+package com.example.chatapp.ui
 
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.chatapp.R
+import com.example.chatapp.adapter.MessageAdapter
+import com.example.chatapp.model.Message
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -22,11 +26,13 @@ class ChatActivity : AppCompatActivity() {
     private val auth = FirebaseAuth.getInstance()
     private val firebaseDatabase = FirebaseDatabase.getInstance()
     private lateinit var messageAdapter: MessageAdapter
+    private lateinit var userImageUri:Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
         supportActionBar!!.hide()
+
 
         var messageList = mutableListOf<Message>()
 
@@ -76,6 +82,7 @@ class ChatActivity : AppCompatActivity() {
         val storageReference = firebaseStorage.reference
         storageReference.child("Images").child(receiverUid)
             .child("Profile Pic").downloadUrl.addOnSuccessListener { uri ->
+                userImageUri=uri
                 Glide.with(applicationContext).load(uri)
                     .into(CircleImageViewPersonChat)
             }
