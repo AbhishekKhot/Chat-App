@@ -32,7 +32,7 @@ class ProfileSetupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_setup)
 
-        CircleImageViewSetProfile.setOnClickListener {
+        TextViewSetProfile.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(intent, REQUEST_CODE)
         }
@@ -52,7 +52,7 @@ class ProfileSetupActivity : AppCompatActivity() {
     }
 
     private fun sendDataForNewUser() {
-      sendDataToRealTimeDatabase()
+        sendDataToRealTimeDatabase()
     }
 
     private fun sendDataToRealTimeDatabase() {
@@ -104,7 +104,9 @@ class ProfileSetupActivity : AppCompatActivity() {
         userdata["uid"] = auth.uid
         userdata["status"] = "Online"
         documentReference.set(userdata).addOnSuccessListener {
-            Toast.makeText(applicationContext, "User information saved successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext,
+                "User information saved successfully",
+                Toast.LENGTH_SHORT).show()
         }
     }
 
