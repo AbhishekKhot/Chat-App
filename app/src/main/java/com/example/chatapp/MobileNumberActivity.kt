@@ -16,14 +16,15 @@ import kotlinx.android.synthetic.main.activity_mobile_number.*
 import java.util.concurrent.TimeUnit
 
 class MobileNumberActivity : AppCompatActivity() {
-   private lateinit var mCallbacks: OnVerificationStateChangedCallbacks
+    private lateinit var mCallbacks: OnVerificationStateChangedCallbacks
     private var firebaseAuth = FirebaseAuth.getInstance()
+    private lateinit var countryCode: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mobile_number)
 
-        var countryCode = CountryCodePicker.selectedCountryCodeWithPlus
+        countryCode = CountryCodePicker.selectedCountryCodeWithPlus
 
         CountryCodePicker.setOnCountryChangeListener {
             countryCode = CountryCodePicker.selectedCountryCodeWithPlus
@@ -32,12 +33,14 @@ class MobileNumberActivity : AppCompatActivity() {
         ButtonSendOTP.setOnClickListener {
             val number = EditTextMobileNumber.text.toString()
             if (number.isEmpty()) {
-                Toast.makeText(applicationContext, "Please enter your mobile number", Toast.LENGTH_SHORT).show()
-            }
-            else if (number.length < 10) {
-                Toast.makeText(applicationContext, "Please enter valid mobile  number", Toast.LENGTH_SHORT).show()
-            }
-            else {
+                Toast.makeText(applicationContext,
+                    "Please enter your mobile number",
+                    Toast.LENGTH_SHORT).show()
+            } else if (number.length < 10) {
+                Toast.makeText(applicationContext,
+                    "Please enter valid mobile  number",
+                    Toast.LENGTH_SHORT).show()
+            } else {
                 ProgressBarMobile.visibility = View.VISIBLE
                 val phoneNumber = countryCode + number
                 val options = PhoneAuthOptions.newBuilder(firebaseAuth)

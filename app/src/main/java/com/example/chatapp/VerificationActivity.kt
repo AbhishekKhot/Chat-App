@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_verification.*
 class VerificationActivity : AppCompatActivity() {
     private var firebaseAuth = FirebaseAuth.getInstance()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
@@ -33,6 +34,7 @@ class VerificationActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
