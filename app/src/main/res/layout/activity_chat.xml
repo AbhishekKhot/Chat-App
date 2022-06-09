@@ -1,9 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/chat_background"
     tools:context=".ChatActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/ToolBarPersonChat"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:background="@color/green">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/ButtonBackPersonChat"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/white" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/CircleImageViewPersonChat"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@id/ButtonBackPersonChat"
+                android:src="@drawable/profile_background" />
+
+            <TextView
+                android:id="@+id/TextViewUserNamePersonChat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/CircleImageViewPersonChat"
+                android:fontFamily="@font/raleway"
+                android:text="Name of User"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h2"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerViewPersonChat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/EditTextMessagePersonChat"
+        android:layout_below="@id/ToolBarPersonChat"
+        android:padding="5dp" />
+
+    <EditText
+        android:id="@+id/EditTextMessagePersonChat"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/message_background"
+        android:hint="Message"
+        android:inputType="text"
+        android:paddingHorizontal="20dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="@dimen/h1" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CardViewPersonaChat"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-50dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@id/EditTextMessagePersonChat"
+        android:backgroundTint="@color/green"
+        app:cardCornerRadius="45dp">
+
+        <ImageButton
+            android:id="@+id/ImageButtonSendPersonChat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/green"
+            android:backgroundTint="@color/green"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_arrow_forward"
+            app:tint="@color/white" />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

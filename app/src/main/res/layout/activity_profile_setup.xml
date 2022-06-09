@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ProfileSetupActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/TextViewSetProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/View"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/raleway"
+        android:text="Choose profile photo"
+        android:textColor="@color/black"
+        android:textSize="@dimen/h1"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/View"
+        android:layout_width="180dp"
+        android:layout_height="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:layout_above="@+id/CircleImageViewSetProfile"
+        android:background="@color/black" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/CircleImageViewSetProfile"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_above="@+id/EditTextUserNameSetUpProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/profile_background"
+        app:civ_circle_background_color="#E1DEDE" />
+
+    <EditText
+        android:id="@+id/EditTextUserNameSetUpProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="20dp"
+        android:hint="Enter your name here"
+        android:inputType="textCapWords"
+        android:padding="10dp" />
+
+    <android.widget.Button
+        android:id="@+id/ButtonSaveProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EditTextUserNameSetUpProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/green"
+        android:fontFamily="@font/raleway"
+        android:text="SAVE"
+        android:textColor="@color/white"
+        android:textSize="@dimen/h1"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/ProgressBarSetUpProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+
+</RelativeLayout>

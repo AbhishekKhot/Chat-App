@@ -5,7 +5,15 @@
       <map>
         <entry key="..\:/ChatApp/app/src/main/res/drawable/ic_more_vert.xml" value="0.19166666666666668" />
         <entry key="..\:/ChatApp/app/src/main/res/font/fonts.xml" value="0.20572916666666666" />
+        <entry key="..\:/ChatApp/app/src/main/res/layout/activity_chat.xml" value="0.6" />
+        <entry key="..\:/ChatApp/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/ChatApp/app/src/main/res/layout/activity_mobile_number.xml" value="0.17552083333333332" />
+        <entry key="..\:/ChatApp/app/src/main/res/layout/activity_profile_setup.xml" value="0.17552083333333332" />
+        <entry key="..\:/ChatApp/app/src/main/res/layout/activity_splash.xml" value="0.17552083333333332" />
         <entry key="..\:/ChatApp/app/src/main/res/layout/activity_verification.xml" value="0.17552083333333332" />
+        <entry key="..\:/ChatApp/app/src/main/res/layout/chat_item.xml" value="0.17552083333333332" />
+        <entry key="..\:/ChatApp/app/src/main/res/layout/chatviewlayout.xml" value="0.17552083333333332" />
+        <entry key="..\:/ChatApp/app/src/main/res/layout/receiver_item.xml" value="0.17552083333333332" />
       </map>
     </option>
   </component>

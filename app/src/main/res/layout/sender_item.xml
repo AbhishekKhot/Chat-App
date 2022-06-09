@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="50dp"
+    android:padding="2dp">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayoutSender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/sender_message_background">
+
+        <TextView
+            android:id="@+id/TextViewMessageSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:paddingVertical="7dp"
+            android:paddingStart="7dp"
+            android:paddingEnd="40dp"
+            android:text="Sender Message Display Here "
+            android:textColor="@color/black"
+            android:textSize="@dimen/h3"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextViewMessageTimeSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/TextViewMessageSender"
+            android:layout_marginStart="-35dp"
+            android:layout_toEndOf="@id/TextViewMessageSender"
+            android:padding="7dp"
+            android:text="20:09"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h4"
+            android:textStyle="bold"
+            tools:ignore="SmallSp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
