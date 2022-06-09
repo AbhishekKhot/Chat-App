@@ -16,7 +16,6 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var textMessage: String
     private lateinit var receiverName: String
     private lateinit var receiverUid: String
-    private lateinit var senderName: String
     private lateinit var senderUid: String
     private lateinit var senderRoom: String
     private lateinit var receiverRoom: String
@@ -33,7 +32,7 @@ class ChatActivity : AppCompatActivity() {
 
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.stackFromEnd = true
-        messageAdapter = MessageAdapter(this@ChatActivity, messageList)
+        messageAdapter = MessageAdapter(messageList)
 
         RecyclerViewPersonChat.let {
             it.layoutManager = linearLayoutManager
@@ -51,7 +50,7 @@ class ChatActivity : AppCompatActivity() {
 
         val databaseReference: DatabaseReference =
             firebaseDatabase.reference.child("chats").child(senderRoom).child("messages")
-        messageAdapter = MessageAdapter(this@ChatActivity, messageList)
+        messageAdapter = MessageAdapter( messageList)
 
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
