@@ -21,15 +21,21 @@ import kotlinx.android.synthetic.main.chat_item.view.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var userAdapter: FirestoreRecyclerAdapter<UserDetails, NoteViewHolder>
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
+    private lateinit var user_name: String
+    private lateinit var user_image: String
+    private lateinit var user_id: String
+    private lateinit var user_status: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar!!.hide()
-        val auth = FirebaseAuth.getInstance()
-        val fireStore = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
-        val query = fireStore.collection("Users").whereNotEqualTo("uid", auth.uid)
+        val query = firestore.collection("Users").whereNotEqualTo("uid", auth.uid)
         val allUsersName =
             FirestoreRecyclerOptions.Builder<UserDetails>().setQuery(query, UserDetails::class.java)
                 .build()
@@ -46,6 +52,12 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 userDetail: UserDetails,
             ) {
+                user_name = userDetail.name.toString()
+                user_id = userDetail.uid.toString()
+                user_image = userDetail.image.toString()
+                user_status = userDetail.status.toString()
+
+
                 holder.itemView.TextViewUserNameChat.text = userDetail.name
 
                 Glide.with(applicationContext).load(userDetail.image)
@@ -67,13 +79,12 @@ class MainActivity : AppCompatActivity() {
 
                 holder.itemView.CircleImageViewChat.setOnClickListener {
                     val intent = Intent(this@MainActivity, UserImageActivity::class.java)
-                    intent.putExtra("userimage",userDetail.image)
-                    intent.putExtra("username",userDetail.name)
+                    intent.putExtra("userimage", userDetail.image)
+                    intent.putExtra("username", userDetail.name)
                     startActivity(intent)
                 }
             }
         }
-
 
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = RecyclerView.VERTICAL
@@ -89,11 +100,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        val userdata: MutableMap<String, Any?> = HashMap()
+        userdata["name"] = user_name
+        userdata["image"] = user_image
+        userdata["uid"] = user_id
+        userdata["status"] = "Online"
+        firestore.collection("Users").document(auth.uid.toString()).update(userdata)
         userAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
+        val userdata: MutableMap<String, Any?> = HashMap()
+        userdata["name"] = user_name
+        userdata["image"] = user_image
+        userdata["uid"] = user_id
+        userdata["status"] = "Offline"
+        firestore.collection("Users").document(auth.uid.toString()).update(userdata)
         userAdapter.stopListening()
     }
 }

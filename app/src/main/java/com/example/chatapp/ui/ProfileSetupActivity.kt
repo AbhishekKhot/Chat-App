@@ -27,6 +27,7 @@ class ProfileSetupActivity : AppCompatActivity() {
     private var firebaseStorage = FirebaseStorage.getInstance()
     private var storageReference: StorageReference = firebaseStorage.reference
     private var fireStore = FirebaseFirestore.getInstance()
+    private lateinit var db:FirebaseDatabase
     private lateinit var imageUri: Uri
     private lateinit var name: String
     private lateinit var ImageUriToken: String
@@ -35,6 +36,9 @@ class ProfileSetupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_setup)
         supportActionBar!!.hide()
+
+        db= FirebaseDatabase.getInstance()
+
         TextViewSetProfile.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(intent, REQUEST_CODE)
@@ -60,9 +64,8 @@ class ProfileSetupActivity : AppCompatActivity() {
 
     private fun sendDataToRealTimeDatabase() {
         name = EditTextUserNameSetUpProfile.text.toString().trim()
-        val firebaseDatabase = FirebaseDatabase.getInstance()
-        val databaseReference = firebaseDatabase.getReference(auth.uid!!)
-        val user = User(name, auth.uid)
+        val databaseReference = db.getReference(auth.uid!!)
+        val user = User(name,auth.uid.toString())
         databaseReference.setValue(user)
         Toast.makeText(applicationContext, "Profile saved successfully", Toast.LENGTH_SHORT).show()
         sendImagetoStorage()
