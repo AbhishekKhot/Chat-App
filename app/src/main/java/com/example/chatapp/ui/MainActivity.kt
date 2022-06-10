@@ -100,23 +100,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val userdata: MutableMap<String, Any?> = HashMap()
-        userdata["name"] = user_name
-        userdata["image"] = user_image
-        userdata["uid"] = user_id
-        userdata["status"] = "Online"
-        firestore.collection("Users").document(auth.uid.toString()).update(userdata)
+        firestore.collection("Users").document(auth.uid.toString()).update("status","Online")
         userAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        val userdata: MutableMap<String, Any?> = HashMap()
-        userdata["name"] = user_name
-        userdata["image"] = user_image
-        userdata["uid"] = user_id
-        userdata["status"] = "Offline"
-        firestore.collection("Users").document(auth.uid.toString()).update(userdata)
+        firestore.collection("Users").document(auth.uid.toString()).update("status","Offline")
         userAdapter.stopListening()
     }
 }
